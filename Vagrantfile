@@ -6,7 +6,7 @@
 # backwards compatibility). Please don't change it unless you know what
 # you're doing.
 Vagrant.configure("2") do |config|
-  config.vm.box = "ubuntu/trusty64"
+  config.vm.box = "ubuntu/xenial64"
   config.vm.synced_folder ".", "/vagrant", disable: true # prevent RCE from guest
   config.vm.synced_folder "./vagrant", "/vagrant"
 
@@ -20,6 +20,6 @@ Vagrant.configure("2") do |config|
 
   config.vm.provision "shell", inline: <<-SHELL
     apt-get update
-    sudo apt-get install ubuntu-desktop
+    sudo apt-get install -y ubuntu-desktop
   SHELL
 end
